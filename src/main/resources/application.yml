@@ -1,0 +1,27 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          twitter:
+            client-id: w5hNqyc9FWYMYbYDKIhliq0fA
+            client-secret: IatiZgTPLCBrC5kzscireDs8V3wnS6ITJbfQMMBvWxBipUYMyK
+            client-authentication-method: post
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
+            redirect-uri-template: "http://localhost:8080/login/oauth2/code/{registrationId}"
+            client-name: Twitter
+            provider: twitter
+        provider:
+          twitter:
+            authorization-uri: https://api.twitter.com/oauth/authorize
+            token-uri: https://api.twitter.com/oauth/request_token
+            user-info-uri: https://api.twitter.com/oauth/userinfo
+            jwk-set-uri: https://api.twitter.com/oauth/keys
+
+my-client-id: w5hNqyc9FWYMYbYDKIhliq0fA
+my-client-secret: IatiZgTPLCBrC5kzscireDs8V3wnS6ITJbfQMMBvWxBipUYMyK
+my-redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
