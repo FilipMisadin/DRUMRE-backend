@@ -31,11 +31,13 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.social.oauth1.OAuth1Operations;
 import org.springframework.social.oauth1.OAuthToken;
 import org.springframework.social.twitter.connect.TwitterConnectionFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @SpringBootApplication
 @RestController
 public class SocialApplication extends WebSecurityConfigurerAdapter {
@@ -84,8 +86,8 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().disable();
 		http.csrf().disable();
+		http.cors();
 		// @formatter:off
 		http
 			.authorizeRequests(a -> a
